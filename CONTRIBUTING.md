@@ -56,6 +56,17 @@ page.
 
 ### Guardrails in this repo
 
+- **Pre-commit secret scan** (`.githooks/pre-commit`) — automatically **blocks any commit** that
+  adds a key-shaped token (`sk-ant-…`, `gho_…`, AWS keys, private-key blocks, Slack/Google keys)
+  or a sensitive file (`.env`, `*.pem`, `*.key`, …), even if force-added past `.gitignore`.
+  It's tracked in the repo; enable it once per clone:
+
+  ```bash
+  git config core.hooksPath .githooks
+  ```
+
+  If it ever fires on a genuine false positive, review carefully, then bypass with
+  `git commit --no-verify`.
 - `.gitignore` excludes `.env`, `*.key`, `*.pem`, secret files, and OS junk (`.DS_Store`) so
   they can't be staged by accident.
 - Quick pre-push self-check: run `git diff --cached` and scan for anything that looks like a key,

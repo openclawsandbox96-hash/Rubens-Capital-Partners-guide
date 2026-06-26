@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Pre-commit secret scan for Rubens-Capital-Partners-guide.
+# Blocks commits that add key-shaped tokens or sensitive files.
+# This file is tracked; enable it once per clone with:
+#   git config core.hooksPath .githooks
+# Bypass ONLY if you are certain it is a false positive:
+#   git commit --no-verify
+
+fail=0
+
+# 1) Block sensitive files even if force-added past .gitignore
+while IFS= read -r f; do
+  [ -z "$f" ] && continue
+  case "$f" in
+    .env|*.env|.env.*|*.pem|*.key|*.p12|*.pfx|*.keystore|id_rsa|id_ed25519|*service-account*.json)
+      echo "✖ Refusing to commit sensitive file: $f"; fail=1 ;;
+  esac
+done < <(git diff --cached --name-only --diff-filter=ACM)
+
+# 2) Scan ADDED lines for real key-length tokens (placeholders like sk-ant-… won't match)
+patterns='sk-ant-[A-Za-z0-9_-]{24,}|gh[posu]_[A-Za-z0-9]{30,}|AKIA[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY-----|xox[baprs]-[A-Za-z0-9-]{10,}|AIza[0-9A-Za-z_-]{30,}'
+hits=$(git diff --cached -U0 --diff-filter=ACM | grep -E '^\+[^+]' | grep -nE "$patterns")
+if [ -n "$hits" ]; then
+  echo "✖ Potential secret detected in staged changes:"
+  echo "$hits"
+  fail=1
+fi
+
+if [ "$fail" -ne 0 ]; then
+  echo
+  echo "Commit blocked by .githooks/pre-commit (secret scan)."
+  echo "False positive? Review carefully, then: git commit --no-verify"
+  exit 1
+fi
+exit 0
