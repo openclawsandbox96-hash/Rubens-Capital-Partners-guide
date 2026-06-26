@@ -1,0 +1,24 @@
+# --- OS / editor junk ---
+.DS_Store
+.AppleDouble
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# --- Secrets & credentials: NEVER commit these ---
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.keystore
+id_rsa
+id_ed25519
+secrets.*
+*.secret
+*credentials*
+*token*
+service-account*.json
