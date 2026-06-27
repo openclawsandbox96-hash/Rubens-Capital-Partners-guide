@@ -7,6 +7,10 @@ Thumbs.db
 *.swp
 *~
 
+# --- Internal strategy: not for the public repo by default ---
+# Remove this line if you deliberately want the rollout plan versioned/published.
+docs/adoption-roadmap.md
+
 # --- Secrets & credentials: NEVER commit these ---
 .env
 .env.*
