@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CLAUDE.md Setup Questionnaire — Rubens Capital Partners</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
+  :root{--paper:#F1F3EE;--backdrop:#E5E8DF;--card:#FCFDFB;--ink:#15241E;--ink-soft:#42504A;
+    --line:#C7CFC4;--line-soft:#D9DFD4;--accent:#1F5C4D;--accent-deep:#163F35;--gold:#A87B33;--gold-soft:#F0E6D2}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--backdrop);color:var(--ink);font-family:'Inter',system-ui,sans-serif;
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .sheet{max-width:780px;margin:34px auto;background:var(--paper);padding:0 clamp(20px,5vw,56px) 64px;
+    box-shadow:0 24px 60px -28px rgba(21,36,30,.28)}
+  h1,h2,h3{font-family:'Archivo',sans-serif;color:var(--ink);margin:0;line-height:1.15;letter-spacing:-.01em}
+  a{color:var(--accent)}
+  .top{position:sticky;top:0;background:rgba(241,243,238,.94);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);padding:14px clamp(20px,5vw,56px);display:flex;gap:12px;
+    align-items:center;flex-wrap:wrap;justify-content:space-between;margin:0 calc(-1*clamp(20px,5vw,56px))}
+  .back{font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;text-decoration:none}
+  .btn{display:inline-flex;align-items:center;gap:7px;background:var(--accent);color:#fff;border:1px solid var(--accent);
+    border-radius:9px;padding:9px 16px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;text-decoration:none}
+  .btn:hover{background:var(--accent-deep)}
+  .head{padding:34px 0 4px}
+  .kicker{font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent)}
+  .head h1{font-size:clamp(26px,5vw,38px);font-weight:800;margin:6px 0 4px}
+  .head .sub{color:var(--ink-soft);font-size:15px}
+  .why{background:var(--gold-soft);border:1px solid #E2CF9F;border-radius:12px;padding:18px 20px;margin:24px 0}
+  .why h3{font-size:16px;color:#7C5A1E;margin-bottom:6px}
+  .why p{margin:.5em 0;font-size:14.5px}
+  .steps{background:var(--card);border:1px solid var(--line-soft);border-radius:12px;padding:18px 20px;margin:18px 0}
+  .steps h3{font-size:16px;margin-bottom:8px}
+  .steps ol{margin:0;padding-left:1.25em} .steps li{margin:.45em 0;font-size:14.5px}
+  .copymark{display:flex;align-items:center;gap:12px;margin:30px 0 6px;color:var(--accent);
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+  .copymark::before,.copymark::after{content:"";flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--accent) 0 8px,transparent 8px 14px)}
+  .instr{background:var(--ink);color:#E9F0EA;border-radius:10px;padding:14px 16px;font-size:14px;margin:6px 0 26px}
+  section.q{margin:26px 0}
+  section.q > h2{font-size:19px;font-weight:800;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:7px;margin-bottom:4px}
+  section.q .lead{font-size:13.5px;color:var(--ink-soft);margin:6px 0 0}
+  .item{margin:16px 0}
+  .item .qn{font-weight:600;font-size:15px}
+  .item .qn b{color:var(--accent);font-family:'Archivo',sans-serif;margin-right:6px}
+  .box{border:1px dashed var(--line);background:var(--card);border-radius:8px;min-height:46px;margin-top:7px}
+  .box.tall{min-height:78px}
+  .foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-soft);
+    display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:'Archivo',sans-serif;letter-spacing:.02em}
+  @media print{.top{display:none}}
+</style>
+</head>
+<body>
+<main class="sheet">
+  <div class="top">
+    <a class="back" href="index.html">&larr; Back to the guide</a>
+    <a class="btn" href="assets/CLAUDE-md-questionnaire-RCP.docx" download>Download the Word version to fill in</a>
+  </div>
+
+  <div class="head">
+    <div class="kicker">Rubens Capital Partners · AI Personalisation</div>
+    <h1>CLAUDE.md Setup Questionnaire</h1>
+    <p class="sub">Set Claude up to know who you are and how you work — before you type a thing.</p>
+  </div>
+
+  <div class="why">
+    <h3>Why this matters — please read</h3>
+    <p>This is the single most important step in getting Claude to work well for you. Claude reads a file called <b>CLAUDE.md</b> at the start of every session: a permanent briefing that tells it who you are, what you work on, and how you like to work. You won't have to re-explain anything, ever.</p>
+    <p>The quality of this file directly determines the quality of everything Claude does for you. The fifteen minutes you spend here carefully will save you hours over the months ahead. Be specific, give real examples, and write as much as is useful — there's no penalty for detail.</p>
+  </div>
+
+  <div class="steps">
+    <h3>How to set up your file — about two minutes, no technical steps</h3>
+    <ol>
+      <li>Fill in every answer box below as fully as you can.</li>
+      <li>Open Cowork (or Claude Code).</li>
+      <li>Select everything from the "copy from here" marker to the end of the document, and paste it in.</li>
+      <li>Claude creates your CLAUDE.md file automatically — and reads it at the start of every session from then on.</li>
+    </ol>
+  </div>
+
+  <div class="copymark">✂ Copy from here to the end</div>
+  <div class="instr"><b>Instruction for Claude:</b> Below are my answers to a setup questionnaire. Please create a CLAUDE.md file in my current working folder that captures who I am, what I work on, the files and folders I use, and how I like to work. Organise it clearly with sensible headings, and use my answers below to write it. Ignore any questions I left blank.</div>
+
+  <section class="q">
+    <h2>Section 1 — Your role</h2>
+    <div class="item"><div class="qn"><b>1.1</b> What is your job title?</div><div class="box"></div></div>
+    <div class="item"><div class="qn"><b>1.2</b> In a few sentences, what does your day-to-day work actually involve? (e.g. reviewing leases, preparing investor reports, managing valuations, handling KYC)</div><div class="box tall"></div></div>
+    <div class="item"><div class="qn"><b>1.3</b> What are the 2–3 tasks you spend the most time on each week?</div><div class="box tall"></div></div>
+    <div class="item"><div class="qn"><b>1.4</b> What software and tools do you use regularly? (e.g. Excel, SharePoint, specific databases, email)</div><div class="box"></div></div>
+  </section>
+
+  <section class="q">
+    <h2>Section 2 — Files and folders</h2>
+    <p class="lead">This helps Claude understand where your work lives so it can reference files correctly.</p>
+    <div class="item"><div class="qn"><b>2.1</b> What is the main folder on your computer where you keep your work files?</div><div class="box"></div></div>
+    <div class="item"><div class="qn"><b>2.2</b> Are there specific subfolders Claude should know about? (e.g. investor reports, contracts, valuations)</div><div class="box tall"></div></div>
+    <div class="item"><div class="qn"><b>2.3</b> Do you work with any shared SharePoint folders? If so, which ones most often?</div><div class="box"></div></div>
+  </section>
+
+  <section class="q">
+    <h2>Section 3 — How you like to work</h2>
+    <p class="lead">These preferences shape how Claude communicates with you.</p>
+    <div class="item"><div class="qn"><b>3.1</b> Do you prefer written output concise and to-the-point, or detailed and thorough? Any other preferences?</div><div class="box tall"></div></div>
+    <div class="item"><div class="qn"><b>3.2</b> Should Claude ask clarifying questions before starting, or attempt the task and let you correct it?</div><div class="box"></div></div>
+    <div class="item"><div class="qn"><b>3.3</b> Any formatting preferences? (e.g. always use bullet points, avoid jargon, use Dutch for certain tasks, summary at the top)</div><div class="box"></div></div>
+    <div class="item"><div class="qn"><b>3.4</b> Is there anything Claude should never do or always avoid in its responses?</div><div class="box"></div></div>
+  </section>
+
+  <section class="q">
+    <h2>Section 4 — Your expertise</h2>
+    <p class="lead">This helps Claude pitch explanations at the right level.</p>
+    <div class="item"><div class="qn"><b>4.1</b> How comfortable are you with Excel and data work? (basic / intermediate / advanced — and any specifics)</div><div class="box"></div></div>
+    <div class="item"><div class="qn"><b>4.2</b> How comfortable are you with technology in general? Any tools or concepts you find tricky?</div><div class="box"></div></div>
+    <div class="item"><div class="qn"><b>4.3</b> What languages do you work in? (e.g. Dutch for client communication, English for reports)</div><div class="box"></div></div>
+  </section>
+
+  <section class="q">
+    <h2>Section 5 — Recurring tasks and templates</h2>
+    <p class="lead">If Claude knows your recurring work, it can help much faster.</p>
+    <div class="item"><div class="qn"><b>5.1</b> Any documents you produce regularly that follow a standard format? (monthly reports, investor updates, lease summaries)</div><div class="box tall"></div></div>
+    <div class="item"><div class="qn"><b>5.2</b> Any standard phrases, sign-offs, or terminology RCP uses that Claude should always apply?</div><div class="box"></div></div>
+    <div class="item"><div class="qn"><b>5.3</b> Any tasks where you copy-paste from old documents or redo the same steps repeatedly? (Claude may be able to automate these)</div><div class="box tall"></div></div>
+  </section>
+
+  <section class="q">
+    <h2>Section 6 — Anything else</h2>
+    <div class="item"><div class="qn"><b>6.1</b> Anything about your role, working style, or preferences Claude should know that wasn't covered above?</div><div class="box tall"></div></div>
+  </section>
+
+  <div class="foot"><span>Rubens Capital Partners · AI Integration</span><span>Your answers configure only your personal Claude session.</span></div>
+</main>
+</body>
+</html>
